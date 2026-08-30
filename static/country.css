@@ -1,0 +1,54 @@
+:root { --forest:#123b2a; --deep:#09251b; --gold:#e5a522; --cream:#f7f3ea; --ink:#18302a; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; color:var(--ink); background:#fff; font-family:"DM Sans",Arial,sans-serif; }
+.country-nav { position:absolute; inset:0 0 auto; z-index:2; width:min(1220px,90%); margin:auto; padding:25px 0; display:flex; align-items:center; justify-content:space-between; color:#fff; }
+.country-brand { color:#fff; text-decoration:none; font-family:"Playfair Display",Georgia,serif; font-size:1.35rem; font-weight:700; }
+.country-brand span { color:#f3bd43; }
+.country-nav nav { display:flex; align-items:center; gap:25px; }
+.country-nav nav a { color:#fff; text-decoration:none; font-size:.94rem; font-weight:600; }
+.country-nav .book-link { border:1px solid rgba(255,255,255,.7); border-radius:999px; padding:10px 18px; }
+.country-hero-new { min-height:640px; display:grid; place-items:center; color:#fff; background:linear-gradient(90deg,rgba(5,28,18,.84),rgba(5,28,18,.42)),var(--hero-image) center/cover; }
+.country-hero-content { width:min(1220px,90%); margin:80px auto 0; }
+.eyebrow { color:#f6cf79; font-size:.75rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; }
+h1,h2,h3 { font-family:"Playfair Display",Georgia,serif; }
+.country-hero-new h1 { max-width:720px; margin:16px 0; font-size:clamp(3.3rem,7.2vw,6.2rem); line-height:1; letter-spacing:-.04em; }
+.country-hero-new p { max-width:570px; margin:0 0 29px; font-size:1.1rem; line-height:1.65; color:#f8f7f3; }
+.country-button { display:inline-flex; align-items:center; justify-content:center; min-height:50px; padding:0 24px; border-radius:999px; background:var(--gold); color:#1a2d23; text-decoration:none; font-weight:700; transition:.2s; }
+.country-button:hover { transform:translateY(-2px); background:#f2bd42; }
+.country-intro-new { max-width:870px; margin:auto; padding:90px 5% 70px; text-align:center; }
+.country-intro-new h2 { margin:11px 0 16px; font-size:clamp(2.25rem,4vw,3.5rem); line-height:1.1; }
+.country-intro-new p { margin:auto; color:#5f6c65; line-height:1.72; font-size:1.05rem; }
+.country-destinations-new { background:var(--cream); padding:82px 5%; }
+.country-wrap { max-width:1220px; margin:auto; }
+.section-heading { display:flex; justify-content:space-between; align-items:end; gap:25px; margin-bottom:34px; }
+.section-heading h2 { max-width:600px; margin:10px 0 0; font-size:clamp(2.2rem,4vw,3.45rem); line-height:1.1; }
+.section-heading p { max-width:360px; margin:0; color:#64726b; line-height:1.6; }
+.country-card-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.country-card { overflow:hidden; background:#fff; box-shadow:0 10px 26px rgba(18,59,42,.10); }
+.country-card img { width:100%; height:245px; display:block; object-fit:cover; transition:transform .4s; }
+.country-card:hover img { transform:scale(1.05); }
+.country-card-info { padding:21px; }
+.country-card h3 { margin:0 0 10px; font-size:1.55rem; line-height:1.14; }
+.country-card p { min-height:72px; margin:0 0 13px; color:#637069; font-size:.93rem; line-height:1.55; }
+.price { display:block; margin-bottom:17px; color:#af7610; font-weight:700; }
+.small-button { padding:11px 16px; min-height:auto; font-size:.9rem; }
+.country-experiences { max-width:1220px; margin:auto; padding:88px 5%; }
+.country-experiences h2 { margin:10px 0 30px; font-size:clamp(2.15rem,4vw,3.3rem); }
+.experience-grid-new { display:grid; grid-template-columns:repeat(4,1fr); gap:17px; }
+.experience-new { padding:25px 22px; border-top:3px solid var(--gold); background:#f8faf8; }
+.experience-icon { color:var(--gold); font-size:1.3rem; }
+.experience-new h3 { margin:13px 0 7px; font-size:1.35rem; }
+.experience-new p { margin:0; color:#64726b; line-height:1.55; font-size:.93rem; }
+.country-cta-new { padding:95px 5%; color:#fff; text-align:center; background:linear-gradient(rgba(7,35,24,.79),rgba(7,35,24,.79)),var(--cta-image) center/cover; }
+.country-cta-new h2 { max-width:760px; margin:11px auto 13px; font-size:clamp(2.45rem,4.5vw,4rem); line-height:1.08; }
+.country-cta-new p { max-width:540px; margin:0 auto 26px; color:#e3e9e4; line-height:1.65; }
+.country-footer { padding:35px 5%; background:var(--deep); color:#dce3de; text-align:center; }
+.country-footer p { margin:9px 0 0; font-size:.86rem; }
+.package-hero { min-height:570px; display:grid; place-items:center; color:#fff; background:linear-gradient(90deg,rgba(5,28,18,.84),rgba(5,28,18,.42)),var(--package-image) center/cover; }
+.package-hero-content { width:min(1220px,90%); margin:80px auto 0; }.package-hero h1 { max-width:780px; margin:15px 0; font-size:clamp(3rem,6vw,5.5rem); line-height:1; letter-spacing:-.04em; }.package-hero p { max-width:590px; margin:0; color:#f8f7f3; font-size:1.1rem; line-height:1.65; }
+.package-highlight { margin-top:24px !important; padding:18px 20px; border-left:4px solid var(--gold); background:#fcf4e3; color:#3d554a !important; font-weight:600; }
+.package-main { width:min(1080px,90%); margin:auto; padding:86px 0; display:grid; grid-template-columns:1.35fr .65fr; gap:70px; align-items:center; }.package-main h2 { margin:10px 0 15px; font-size:clamp(2.3rem,4vw,3.6rem); line-height:1.1; }.package-main p { max-width:620px; color:#5f6c65; font-size:1.05rem; line-height:1.72; }.package-booking { padding:34px; border-top:4px solid var(--gold); background:var(--cream); box-shadow:0 12px 30px rgba(18,59,42,.10); }.package-booking span { display:block; color:#8f6515; font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }.package-booking strong { display:block; margin:7px 0 25px; color:var(--forest); font-family:"Playfair Display",Georgia,serif; font-size:2.7rem; }.package-booking small { font-family:"DM Sans",Arial,sans-serif; font-size:.9rem; font-weight:500; }.package-booking .country-button { width:100%; }.package-back { display:block; margin-top:19px; color:var(--forest); font-size:.9rem; font-weight:700; text-align:center; text-decoration:none; }
+@media (max-width:950px) { .country-card-grid,.experience-grid-new { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:800px) { .package-main { grid-template-columns:1fr; gap:35px; padding:68px 0; } }
+@media (max-width:650px) { .country-nav { padding:19px 0; } .country-nav nav a:not(.book-link) { display:none; } .country-brand { font-size:1.13rem; } .country-hero-new { min-height:600px; } .country-hero-content { margin-top:75px; } .section-heading { display:block; } .section-heading p { margin-top:17px; } .country-card-grid,.experience-grid-new { grid-template-columns:1fr; } .country-card img { height:270px; } .country-card p { min-height:0; } .country-intro-new,.country-destinations-new,.country-experiences { padding-top:68px; padding-bottom:68px; } }

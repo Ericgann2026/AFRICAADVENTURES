@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Adventures | Africa Adventures</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f1e8;
+            color: #333;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #1f3d2b;
+            color: white;
+            padding: 20px 5%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #f4a261;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 400px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            color: white;
+
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.55),
+                    rgba(0,0,0,0.55)
+                ),
+                url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1800&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+        }
+
+        /* SECTION */
+
+        .section {
+            padding: 60px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #1f3d2b;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+
+        .country-heading {
+            grid-column: 1 / -1;
+            margin: 0 0 -4px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #d97932;
+            color: #1f3d2b;
+            font-size: 28px;
+        }
+
+        .country-layout {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+            gap: 40px;
+            align-items: start;
+        }
+
+        .country-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .kenya-column {
+            grid-template-columns: 1fr;
+        }
+
+        .other-countries {
+            display: grid;
+            gap: 44px;
+        }
+
+        /* CARDS */
+
+        .adventure-grid {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(300px, 1fr));
+
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 7px 25px rgba(0,0,0,0.12);
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,0.18);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 230px;
+
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .country {
+            color: #d97932;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .card h3 {
+            color: #1f3d2b;
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #d97932;
+            margin-bottom: 18px;
+        }
+
+        .book-button {
+            display: block;
+
+            width: 100%;
+
+            text-align: center;
+
+            padding: 13px;
+
+            background: #1f3d2b;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .book-button:hover {
+            background: #315b40;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #1f3d2b;
+            color: white;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+        footer p {
+            margin: 6px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 650px) {
+
+            .country-layout {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        🌍 Africa Adventures
+    </div>
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/kenya">
+            Kenya
+        </a>
+
+        <a href="/tanzania">
+            Tanzania
+        </a>
+
+        <a href="/south-africa">
+            South Africa
+        </a>
+
+        <a href="/wildlife">
+            Wildlife
+        </a>
+
+        <a href="/booking">
+            Booking
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div>
+
+        <h1>
+            🌍 Book Your Adventure
+        </h1>
+
+        <p>
+            Discover the wild beauty of Africa.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ADVENTURES -->
+
+<section class="section">
+
+    <h2 class="section-title">
+        Choose Your Adventure
+    </h2>
+
+    <p class="section-subtitle">
+        Explore unforgettable destinations across
+        Kenya, Tanzania and South Africa.
+    </p>
+
+
+    <div class="country-layout">
+
+        <section class="country-column kenya-column">
+
+        <h2 class="country-heading">Kenya — 11 Packages</h2>
+
+        {% if false %}
+        <!-- MASAI MARA -->
+
+        <div class="card">
+
+            <img
+                class="card-image"
+                src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=900&q=80"
+                alt="Masai Mara Safari"
+            >
+
+            <div class="card-content">
+
+                <div class="country">
+                    🇰🇪 Kenya
+                </div>
+
+                <h3>
+                    Maasai Mara National Reserve
+                </h3>
+
+                <p>
+                    Experience Kenya's incredible wildlife
+                    and search for lions, elephants,
+                    cheetahs and the famous Great Migration.
+                </p>
+
+                <div class="price">
+                    $100 per traveler
+                </div>
+
+                <a
+                    href="/booking?destination=Maasai%20Mara%20National%20Reserve"
+                    class="book-button"
+                >
+                    Book Now →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- AMBOSELI -->
+
+        <div class="card">
+
+            <img
+                class="card-image"
+                src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=900&q=80"
+                alt="Amboseli Safari"
+            >
+
+            <div class="card-content">
+
+                <div class="country">
+                    🇰🇪 Kenya
+                </div>
+
+                <h3>
+                    Amboseli National Park
+                </h3>
+
+                <p>
+                    See huge elephant herds with the
+                    magnificent Mount Kilimanjaro
+                    forming the perfect background.
+                </p>
+
+                <div class="price">
+                    $100 per traveler
+                </div>
+
+                <a
+                    href="/booking?destination=Amboseli%20National%20Park"
+                    class="book-button"
+                >
+                    Book Now →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        {% endif %}
+        {% for slug, package in kenya_packages.items() %}
+        <div class="card">
+            <img class="card-image" src="{{ package.image }}" alt="{{ package.name }}">
+            <div class="card-content">
+                <div class="country">Kenya</div>
+                <h3>{{ package.name }}</h3>
+                <p>{{ package.description }}</p>
+                <div class="price">$100 per traveler</div>
+                <a href="{{ url_for('kenya_package', package_slug=slug) }}" class="book-button">Book Now</a>
+            </div>
+        </div>
+        {% endfor %}
+
+        </section>
+
+        <aside class="other-countries">
+        <section class="country-column">
+
+        <h2 class="country-heading">Tanzania</h2>
+
+        <!-- SERENGETI -->
+
+        <div class="card">
+
+            <img
+                class="card-image"
+                src="https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=900&q=80"
+                alt="Serengeti Safari"
+            >
+
+            <div class="card-content">
+
+                <div class="country">
+                    🇹🇿 Tanzania
+                </div>
+
+                <h3>
+                    Serengeti Safari
+                </h3>
+
+                <p>
+                    Explore one of Africa's greatest wildlife
+                    destinations and witness incredible
+                    animals across the endless plains.
+                </p>
+
+                <div class="price">
+                    From TZS 650,000
+                </div>
+
+                <a
+                    href="/booking?destination=Serengeti%20Safari"
+                    class="book-button"
+                >
+                    Book Now →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ZANZIBAR -->
+
+        <div class="card">
+
+            <img
+                class="card-image"
+                src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=900&q=80"
+                alt="Zanzibar Beach"
+            >
+
+            <div class="card-content">
+
+                <div class="country">
+                    🇹🇿 Tanzania
+                </div>
+
+                <h3>
+                    Zanzibar Escape
+                </h3>
+
+                <p>
+                    Relax on beautiful tropical beaches,
+                    explore Stone Town and experience
+                    the culture of Zanzibar.
+                </p>
+
+                <div class="price">
+                    From TZS 450,000
+                </div>
+
+                <a
+                    href="/booking?destination=Zanzibar%20Escape"
+                    class="book-button"
+                >
+                    Book Now →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        </section>
+
+        <section class="country-column">
+
+        <h2 class="country-heading">South Africa</h2>
+
+        <!-- CAPE TOWN -->
+
+        <div class="card">
+
+            <img
+                class="card-image"
+                src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&w=900&q=80"
+                alt="Cape Town"
+            >
+
+            <div class="card-content">
+
+                <div class="country">
+                    🇿🇦 South Africa
+                </div>
+
+                <h3>
+                    Cape Town Adventure
+                </h3>
+
+                <p>
+                    Discover Table Mountain, beautiful
+                    beaches, amazing food and the vibrant
+                    city of Cape Town.
+                </p>
+
+                <div class="price">
+                    From ZAR 3,500
+                </div>
+
+                <a
+                    href="/booking?destination=Cape%20Town%20Adventure"
+                    class="book-button"
+                >
+                    Book Now →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- KRUGER -->
+
+        <div class="card">
+
+            <img
+                class="card-image"
+                src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=900&q=80"
+                alt="Kruger National Park"
+            >
+
+            <div class="card-content">
+
+                <div class="country">
+                    🇿🇦 South Africa
+                </div>
+
+                <h3>
+                    Kruger Safari
+                </h3>
+
+                <p>
+                    Go on an unforgettable South African
+                    safari and search for the Big Five
+                    in their natural environment.
+                </p>
+
+                <div class="price">
+                    From ZAR 4,000
+                </div>
+
+                <a
+                    href="/booking?destination=Kruger%20Safari"
+                    class="book-button"
+                >
+                    Book Now →
+                </a>
+
+            </div>
+
+        </div>
+
+        </section>
+        </aside>
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 African Countries Adventures Company, LLC. All Rights Reserved.
+    </p>
+
+    <p>
+        Explore Africa. Create memories.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

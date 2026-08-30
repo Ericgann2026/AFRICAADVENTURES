@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Booking Confirmed - Africa Adventures</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f1e8;
+        }
+
+        .success-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .success-box {
+            background: white;
+            width: 100%;
+            max-width: 750px;
+            padding: 50px 35px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        }
+
+        .check {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            background: #55b85a;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .message {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .booking-id-box {
+            background: #f5efe2;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        .booking-id-label {
+            font-size: 17px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .booking-id {
+            font-size: 32px;
+            font-weight: bold;
+            color: #8b5e34;
+        }
+
+        .warning {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .home-btn:hover {
+            background: #8b5e34;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<section class="success-section">
+
+    <div class="success-box">
+
+        <div class="check">
+            ✓
+        </div>
+
+        <h1>
+            Booking Confirmed!
+        </h1>
+
+        <p class="message">
+            Thank you for booking your adventure
+            with <strong>Africa Adventures</strong>.
+        </p>
+
+
+        <!-- BOOKING ID -->
+
+        <div class="booking-id-box">
+
+            <div class="booking-id-label">
+                Your Booking ID
+            </div>
+
+            <div class="booking-id">
+                #{{ booking_id }}
+            </div>
+
+        </div>
+
+
+        <p class="warning">
+            Please keep your Booking ID safe.
+            You can use it when contacting us
+            about your adventure.
+        </p>
+
+
+        <a href="/" class="home-btn">
+            Back to Home
+        </a>
+
+    </div>
+
+</section>
+
+</body>
+
+</html> 

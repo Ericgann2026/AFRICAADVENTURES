@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Booking Confirmation | Africa Adventures</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f1e8;
+            color: #333;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 20px;
+        }
+
+        .confirmation {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .success {
+            text-align: center;
+            font-size: 60px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1f4d2e;
+        }
+
+        .message {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .details {
+            background: #f7f7f7;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .row:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        .pending {
+            color: #b77900;
+            font-weight: bold;
+        }
+
+        .paid {
+            color: #198754;
+            font-weight: bold;
+        }
+
+        .home-button {
+            display: block;
+            width: fit-content;
+            margin: 30px auto 0;
+            padding: 14px 25px;
+            background: #d99045;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .home-button:hover {
+            background: #bd7430;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px auto;
+            }
+
+            .confirmation {
+                padding: 25px;
+            }
+
+            .row {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="confirmation">
+
+        <div class="success">
+            ✅
+        </div>
+
+        <h1>
+            Booking Confirmed!
+        </h1>
+
+        <p class="message">
+            Thank you for choosing Africa Adventures.
+            Your adventure has been successfully registered.
+        </p>
+
+        <div class="details">
+
+            <div class="row">
+                <span class="label">Booking Number</span>
+                <span>#{{ booking.id }}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Name</span>
+                <span>{{ booking.name }}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Destination</span>
+                <span>{{ booking.destination }}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Travelers</span>
+                <span>{{ booking.people }}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Travel Date</span>
+                <span>{{ booking.travel_date }}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Payment Method</span>
+                <span>
+                    {{ booking.payment_method or "Not selected" }}
+                </span>
+            </div>
+
+            <div class="row">
+                <span class="label">Payment Status</span>
+
+                {% if booking.payment_status == "Paid" %}
+                    <span class="paid">PAID ✅</span>
+                {% else %}
+                    <span class="pending">PENDING ⏳</span>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        <a href="/" class="home-button">
+            ← Back to Africa Adventures
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Book {{ package.name }} with Africa Adventures for $100 per traveler.">
+    <title>{{ package.name }} | Kenya Packages | Africa Adventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='country.css') }}">
+</head>
+<body>
+    <header class="package-hero" style="--package-image:url('{{ package.image }}')">
+        <div class="country-nav"><a class="country-brand" href="/"><span>✦</span> Africa Adventures</a><nav><a href="/">Home</a><a href="/kenya">Kenya packages</a><a href="/adventures">Experiences</a><a class="book-link" href="{{ url_for('booking', destination=package.name) }}">Book now</a></nav></div>
+        <div class="package-hero-content"><div class="eyebrow">Kenya package</div><h1>{{ package.name }}</h1><p>{{ package.description }}</p></div>
+    </header>
+    <main class="package-main"><section><div class="eyebrow">Your experience</div><h2>Discover {{ package.name }}.</h2><p>Make this Kenya highlight part of your African journey. Your package is ready to reserve online at one clear price.</p>{% if package.name == 'Maasai Mara National Reserve' %}<p class="package-highlight">The Maasai Mara is Kenya’s classic safari landscape—vast grasslands, remarkable wildlife and unforgettable views in every direction.</p>{% endif %}</section><aside class="package-booking"><span>Package price</span><strong>$100 <small>per traveler</small></strong><a class="country-button" href="{{ url_for('booking', destination=package.name) }}">Book {{ package.name }}</a><a class="package-back" href="/kenya">← View all Kenya packages</a></aside></main>
+    <footer class="country-footer"><a class="country-brand" href="/"><span>✦</span> Africa Adventures</a><p>© 2026 African Countries Adventures Company, LLC. All Rights Reserved.</p></footer>
+</body>
+</html>

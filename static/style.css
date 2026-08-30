@@ -1,0 +1,515 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    background: #173b22;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 7%;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #f5c542;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 75vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+        ),
+        url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1800&q=85");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    color: white;
+}
+
+.small-title {
+    letter-spacing: 3px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 85px);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.hero-button,
+.book-button {
+    display: inline-block;
+
+    background: #d99a18;
+    color: white;
+
+    padding: 14px 25px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.hero-button:hover,
+.book-button:hover {
+    background: #b97d0d;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   DESTINATIONS
+========================= */
+
+.destinations {
+    padding: 70px 7%;
+    text-align: center;
+}
+
+.destinations h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.section-text {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+.card {
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12);
+
+    text-align: left;
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card img {
+    width: 100%;
+    height: 230px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.country {
+    color: #c28612;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+.card h3 {
+    font-size: 27px;
+    margin: 10px 0;
+}
+
+.card p {
+    color: #666;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   ADVENTURE
+========================= */
+
+.adventure {
+
+    min-height: 400px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+        ),
+        url("https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=1800&q=85");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+}
+
+.adventure-content {
+    max-width: 700px;
+}
+
+.adventure h2 {
+    font-size: clamp(35px, 6vw, 55px);
+
+    margin-bottom: 15px;
+}
+
+.adventure p {
+    font-size: 18px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #173b22;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+footer h3 {
+    font-size: 24px;
+
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #ddd;
+
+    margin-bottom: 10px;
+}
+
+.copyright {
+    font-size: 13px;
+}
+
+
+/* =========================
+   MOBILE PHONE
+========================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 16px 20px;
+    }
+
+    .nav-links {
+        gap: 18px;
+
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: 80vh;
+
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .destinations {
+        padding: 50px 20px;
+    }
+
+    .destinations h2 {
+        font-size: 32px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .card img {
+        height: 240px;
+    }
+
+    .adventure {
+        min-height: 350px;
+    }
+
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 400px) {
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 13px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero-button {
+        padding: 12px 20px;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+}
+
+
+/* =========================
+   WILDLIFE PAGE
+========================= */
+
+body > header {
+    background: #173b22;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 7%;
+}
+
+body > header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+body > header nav a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.wildlife-hero {
+    min-height: 470px;
+    display: grid;
+    place-items: center;
+    padding: 80px 7%;
+    color: white;
+    text-align: center;
+    background: linear-gradient(rgba(5, 31, 19, .72), rgba(5, 31, 19, .72)),
+        url("https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=1800&q=85") center/cover;
+}
+
+.wildlife-hero > div { max-width: 720px; }
+.wildlife-hero h1 { margin: 0 0 15px; font-size: clamp(42px, 7vw, 72px); }
+.wildlife-hero p { margin: 0 0 28px; font-size: 18px; line-height: 1.65; }
+.wildlife-hero .button,
+.wildlife-countries .button,
+.wildlife-cta .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 23px;
+    border-radius: 999px;
+    background: #d99a18;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.wildlife-intro,
+.wildlife-countries,
+.wildlife-cta {
+    padding: 75px 7%;
+    text-align: center;
+}
+
+.wildlife-intro { max-width: 850px; margin: auto; }
+.wildlife-intro h2,
+.wildlife-countries h2,
+.wildlife-cta h2 { margin: 0 0 14px; font-size: clamp(31px, 5vw, 45px); }
+.wildlife-intro p,
+.wildlife-countries p,
+.wildlife-cta p { color: #64726b; line-height: 1.65; }
+
+.wildlife-section { padding: 0 7% 75px; }
+.wildlife-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.wildlife-card {
+    overflow: hidden;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .10);
+}
+
+.wildlife-card img { width: 100%; height: 230px; display: block; object-fit: cover; }
+.wildlife-info { padding: 23px; }
+.wildlife-info h3 { margin: 0 0 10px; font-size: 25px; }
+.wildlife-info h4 { margin: 18px 0 7px; color: #173b22; }
+.wildlife-info p { margin: 0; color: #65736c; line-height: 1.55; }
+
+.country-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 13px; margin-top: 25px; }
+.wildlife-cta { color: white; background: linear-gradient(rgba(5, 31, 19, .78), rgba(5, 31, 19, .78)), url("https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=1800&q=85") center/cover; }
+.wildlife-cta p { color: #e1e8e2; }
+
+@media (max-width: 900px) {
+    .wildlife-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .navbar { padding: 14px 20px; }
+    .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 12px 18px; }
+    .nav-links a { min-height: 44px; display: inline-flex; align-items: center; }
+
+    body > header { justify-content: center; padding: 17px 20px; text-align: center; }
+    body > header nav { justify-content: center; gap: 10px 15px; }
+    body > header nav a { min-height: 40px; display: inline-flex; align-items: center; }
+
+    .wildlife-hero { min-height: 420px; padding: 65px 20px; }
+    .wildlife-intro, .wildlife-countries, .wildlife-cta { padding: 60px 20px; }
+    .wildlife-section { padding: 0 20px 60px; }
+    .wildlife-grid { grid-template-columns: 1fr; }
+    .wildlife-card img { height: 255px; }
+    .country-buttons { flex-direction: column; }
+    .country-buttons .button, .wildlife-hero .button, .wildlife-cta .button { width: 100%; max-width: 360px; margin-inline: auto; }
+}

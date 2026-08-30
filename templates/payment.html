@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Secure Payment | Africa Adventures</title>
+    <script src="https://www.paypal.com/sdk/js?client-id={{ paypal_client_id }}&currency=USD&intent=capture&components=buttons"></script>
+    <style>
+        :root { --forest:#123b2a; --deep:#09251b; --gold:#e5a522; --cream:#f7f3ea; } * { box-sizing:border-box; }
+        body { margin:0; min-height:100vh; display:grid; place-items:center; padding:24px 15px; color:#18302a; font-family:Arial,sans-serif; background:linear-gradient(135deg,#f7f3ea,#e8dfc9); }
+        .payment-box { width:min(100%,600px); padding:38px 30px; background:#fff; border-radius:16px; box-shadow:0 16px 42px rgba(18,59,42,.16); }.brand { color:var(--forest); font:700 1.15rem Georgia,serif; text-align:center; }.brand span { color:var(--gold); }.title { margin:18px 0 8px; color:var(--deep); font:700 2rem Georgia,serif; text-align:center; }.subtitle { margin:0 0 25px; color:#65736c; text-align:center; line-height:1.5; }.booking-info,.price-box { padding:19px; margin-bottom:17px; border-radius:10px; text-align:center; }.booking-info { background:#f8f4e9; }.booking-info span { display:block; color:#9c701d; font-size:.74rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }.booking-info strong { display:block; margin:7px 0 3px; font:700 1.38rem Georgia,serif; }.booking-info small { color:#66756d; }.price-box { border:1px solid #e6ded0; }.price-label { color:#68766f; font-size:.86rem; }.price { margin-top:5px; color:var(--forest); font-size:2rem; font-weight:700; }.per-traveler { margin-top:5px; color:#7a867f; font-size:.8rem; }.paypal-title { margin:27px 0 14px; color:var(--deep); font:700 1.25rem Georgia,serif; text-align:center; }.message { display:none; margin-top:18px; padding:12px; border-radius:8px; text-align:center; }.error { background:#ffe5e5; color:#9d1717; }.success { background:#e4f4e8; color:#176332; }.back { display:block; margin-top:23px; color:var(--forest); text-align:center; font-weight:700; text-decoration:none; } @media(max-width:520px){.payment-box{padding:30px 19px}.title{font-size:1.75rem}}
+    </style>
+</head>
+<body>
+    <main class="payment-box">
+        <div class="brand"><span>✦</span> Africa Adventures</div>
+        <h1 class="title">Secure Payment</h1>
+        <p class="subtitle">Complete your booking securely with PayPal.</p>
+        <div class="booking-info"><span>Your adventure</span><strong>{{ booking.destination }}</strong><small>{{ booking.people }} traveler{% if booking.people|int != 1 %}s{% endif %}</small></div>
+        <div class="price-box"><div class="price-label">Total amount due</div><div class="price">${{ '%.2f'|format(payment_total) }} USD</div><div class="per-traveler">Calculated from the selected adventure and number of travelers</div></div>
+        <h2 class="paypal-title">Pay with PayPal</h2><div id="paypal-button-container"></div><div id="payment-message" class="message"></div><a class="back" href="/">← Back to Home</a>
+    </main>
+    <script>
+        const bookingId = {{ booking_id|tojson }};
+        const message = document.getElementById("payment-message");
+        function showMessage(text, type) { message.textContent = text; message.className = "message " + type; message.style.display = "block"; }
+        paypal.Buttons({
+            style: { layout:"vertical", color:"gold", shape:"rect", label:"paypal", height:48 },
+            createOrder() {
+                return fetch("/paypal/create-order", { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({booking_id:bookingId}) })
+                    .then((response) => response.json().then((data) => ({response,data})))
+                    .then(({response,data}) => { if (!response.ok || !data.id) throw new Error(data.error || "Could not create the PayPal order."); return data.id; });
+            },
+            onApprove(data) {
+                showMessage("Payment approved. Completing payment…", "success");
+                return fetch("/paypal/capture-order", { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({orderID:data.orderID, booking_id:bookingId}) })
+                    .then((response) => response.json())
+                    .then((result) => { if (!result.success) throw new Error(result.error || "Payment could not be completed."); window.location.href = "/confirmation/" + bookingId; })
+                    .catch((error) => showMessage(error.message || "There was a problem completing your payment.", "error"));
+            },
+            onCancel() { showMessage("Payment was cancelled. Your booking is still saved.", "error"); },
+            onError() { showMessage("PayPal could not process the payment. Please try again.", "error"); }
+        }).render("#paypal-button-container");
+    </script>
+</body>
+</html>

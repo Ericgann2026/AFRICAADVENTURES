@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Plan your Africa Adventures journey.">
+    <title>Book Your Adventure | Africa Adventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css">
+    <style>
+        :root { --forest:#123b2a; --deep:#09251b; --gold:#e5a522; --cream:#f7f3ea; --ink:#18302a; }
+        * { box-sizing:border-box; } html { scroll-behavior:smooth; }
+        body { margin:0; background:var(--cream); color:var(--ink); font-family:"DM Sans",Arial,sans-serif; }
+        .booking-nav { position:absolute; inset:0 0 auto; z-index:2; width:min(1220px,90%); margin:auto; padding:25px 0; display:flex; justify-content:space-between; align-items:center; color:#fff; }
+        .brand { color:#fff; font-family:"Playfair Display",Georgia,serif; font-size:1.35rem; font-weight:700; text-decoration:none; }.brand span { color:#f4be45; }
+        .booking-nav nav { display:flex; align-items:center; gap:25px; }.booking-nav nav a { color:#fff; font-size:.94rem; font-weight:600; text-decoration:none; }.booking-nav .nav-book { padding:10px 17px; border:1px solid rgba(255,255,255,.7); border-radius:999px; }
+        .booking-hero { min-height:350px; padding:130px 5% 65px; color:#fff; text-align:center; background:linear-gradient(rgba(5,29,19,.76),rgba(5,29,19,.76)),url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1800&q=85") center/cover; }.eyebrow { color:#f6cf79; font-size:.75rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; }.booking-hero h1,.booking-box h2 { font-family:"Playfair Display",Georgia,serif; }.booking-hero h1 { margin:11px 0 8px; font-size:clamp(2.7rem,5vw,4.5rem); line-height:1.05; }.booking-hero p { margin:0; color:#edf1ed; }
+        .booking-section { padding:65px 20px 80px; }.booking-box { max-width:860px; margin:auto; padding:40px; border-radius:8px; background:#fff; box-shadow:0 18px 48px rgba(18,59,42,.14); }.booking-box h2 { margin:0 0 8px; color:var(--forest); font-size:2rem; }.intro { margin:0 0 28px; color:#66756d; }
+        .selected-adventure { margin-bottom:28px; padding:19px 21px; border-left:4px solid var(--gold); background:#fcf4e3; }.selected-adventure span { display:block; margin-bottom:5px; color:#a87312; font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }.selected-adventure strong { font-family:"Playfair Display",Georgia,serif; color:var(--forest); font-size:1.35rem; }
+        .booking-trust { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:0 0 28px; }.booking-trust div { padding:12px 10px; background:#f5f7f4; color:#607068; font-size:.78rem; line-height:1.35; text-align:center; }.booking-trust strong { display:block; margin-bottom:3px; color:var(--forest); font-size:.82rem; }
+        .form-row { display:grid; grid-template-columns:1fr 1fr; gap:19px; }.form-group { margin-bottom:20px; } label { display:block; margin-bottom:8px; color:#284536; font-size:.91rem; font-weight:700; } input, select, textarea { width:100%; padding:14px; border:1px solid #d8ddd8; border-radius:7px; color:var(--ink); background:#fff; font:inherit; } input:focus,select:focus,textarea:focus { outline:none; border-color:var(--forest); box-shadow:0 0 0 3px rgba(18,59,42,.12); } textarea { min-height:115px; resize:vertical; }.iti { width:100%; }.iti input#phone { padding-left:92px !important; }.phone-help { display:block; margin-top:8px; color:#69766f; font-size:.8rem; line-height:1.45; }
+        .submit-button { width:100%; min-height:54px; border:0; border-radius:999px; background:var(--gold); color:#1a2d23; font:700 1rem "DM Sans",Arial,sans-serif; cursor:pointer; transition:.2s; }.submit-button:hover { transform:translateY(-2px); background:#f3bd42; }.back { display:block; margin-top:22px; color:var(--forest); text-align:center; font-weight:700; text-decoration:none; }.booking-footer { padding:34px 20px; background:var(--deep); color:#dce3de; text-align:center; }.booking-footer p { margin:8px 0 0; font-size:.85rem; }
+        @media(max-width:720px) { .booking-nav { padding-top:19px; }.booking-nav nav a:not(.nav-book) { display:none; }.brand { font-size:1.14rem; }.booking-box { padding:27px 21px; }.form-row, .booking-trust { grid-template-columns:1fr; gap:0; }.booking-trust div { border-bottom:1px solid #e4e9e4; }.booking-trust div:last-child { border:0; } }
+    </style>
+</head>
+<body>
+    <header class="booking-hero">
+        <div class="booking-nav"><a class="brand" href="/"><span>✦</span> Africa Adventures</a><nav><a href="/">Home</a><a href="/adventures">Experiences</a><a href="/wildlife">Wildlife</a><a class="nav-book" href="/booking">Plan your trip</a></nav></div>
+        <div><div class="eyebrow">Your African journey begins here</div><h1>Book Your Adventure</h1><p>Tell us where you want to go, and start turning plans into memories.</p></div>
+    </header>
+    <main class="booking-section"><section class="booking-box"><h2>Your travel details</h2><p class="intro">Complete the form below to continue securely to payment.</p>
+        <div class="selected-adventure"><span>Selected adventure</span><strong>{{ destination or "Choose an adventure below" }}</strong></div>
+        <div class="booking-trust" aria-label="Booking reassurance"><div><strong>Secure checkout</strong>Pay safely with PayPal</div><div><strong>Clear totals</strong>See your total before payment</div><div><strong>International clients</strong>Worldwide phone support</div></div>
+        <form id="booking-form" action="/booking" method="POST">
+            {% if is_kenya_package %}<input type="hidden" name="destination" value="{{ destination }}"><p class="intro">Your Kenya package is selected. Complete your details to continue to payment.</p>{% else %}<div class="form-group"><label for="destination">Adventure</label><select id="destination" name="destination" required><option value="" disabled {% if not destination %}selected{% endif %}>Select your adventure</option>{% for adventure, price in destinations.items() %}<option value="{{ adventure }}" {% if destination == adventure %}selected{% endif %}>{{ adventure }} - from ${{ '%.2f'|format(price) }} per traveler</option>{% endfor %}</select></div>{% endif %}
+            <div class="form-row"><div class="form-group"><label for="name">Full Name</label><input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name" required></div><div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required></div></div>
+            <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="Enter your phone number" autocomplete="tel" inputmode="tel" required><small class="phone-help">Select your country, then enter your mobile number. All international country codes are supported.</small></div>
+            <div class="form-row"><div class="form-group"><label for="people">Number of Travelers</label><input type="number" id="people" name="people" min="1" max="50" value="1" required></div><div class="form-group"><label for="travel_date">Travel Date</label><input type="date" id="travel_date" name="travel_date" required></div></div>
+            <div class="form-group"><label for="message">Special Requests <span style="font-weight:400;color:#748078">(optional)</span></label><textarea id="message" name="message" placeholder="Tell us about any special requests or ideas for your trip..."></textarea></div>
+            <button class="submit-button" type="submit">Continue to Payment →</button>
+        </form><a class="back" href="/adventures">← Back to Experiences</a>
+    </section></main>
+    <footer class="booking-footer"><a class="brand" href="/"><span>✦</span> Africa Adventures</a><p><a href="/about" style="color:#fff;margin:0 8px">About us</a><a href="/contact" style="color:#fff;margin:0 8px">Contact</a><a href="/faq" style="color:#fff;margin:0 8px">FAQ</a><a href="/privacy-policy" style="color:#fff;margin:0 8px">Privacy Policy</a><a href="/terms" style="color:#fff;margin:0 8px">Terms &amp; Conditions</a></p><p>© 2026 African Countries Adventures Company, LLC. All Rights Reserved.</p></footer>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/intlTelInput.min.js"></script>
+    <script>
+        const phoneInput = document.querySelector("#phone");
+        const form = document.querySelector("#booking-form");
+        const phoneField = window.intlTelInput(phoneInput, {
+            initialCountry: "auto",
+            geoIpLookup: (success, failure) => fetch("https://ipapi.co/json").then((response) => response.json()).then((data) => success(data.country_code)).catch(failure),
+            loadUtils: () => import("https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/utils.js"),
+            nationalMode: false,
+            separateDialCode: true,
+            strictMode: true
+        });
+        form.addEventListener("submit", (event) => {
+            phoneInput.setCustomValidity("");
+            if (!phoneField.isValidNumber()) {
+                event.preventDefault();
+                phoneInput.setCustomValidity("Enter a valid international phone number.");
+                phoneInput.reportValidity();
+                return;
+            }
+            phoneInput.value = phoneField.getNumber();
+        });
+    </script>
+</body>
+</html>
